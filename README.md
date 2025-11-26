@@ -11,6 +11,8 @@ It works like a personal AI helper that listens, understands, and responds.
 - Searching Google/Wikipedia
 - Open system applications: Calculator, Notepad, CMD
 - Open Calendar (Google Calendar via browser)
+- Open Camera and capture image (new feature)
+- Play random music
 - Exit gracefully with a voice command
 
 # 💻 Requirements :
