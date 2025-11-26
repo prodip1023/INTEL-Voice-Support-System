@@ -1,22 +1,39 @@
-# Assignment-JARVIS-System
+# INTEL-Voice-Support-System
 
+A smart AI voice assistant designed to help users perform tasks using voice commands.
+It works like a personal AI helper that listens, understands, and responds.
+
+# 🛠️ Features:-
+- Opening websites
+- Reading news
+- Opening files/programs
+- Giving answers
+- Searching Google/Wikipedia
+- Open system applications: Calculator, Notepad, CMD
+- Open Calendar (Google Calendar via browser)
+- Exit gracefully with a voice command
+
+# 💻 Requirements :
+Python 3.11 + 
+
+# How to run?
 1. Create Environment
 ```
 conda create -n jarvis python==3.11 -y
 ```
 2. Activate Environment
-
 ```
 conda activate jarvis
 ```
 3. Create requirements.txt for installing required packages
-
 ```
 pip install -r requirements.txt
 ```
 4. Create Google API Key and store .env file because of hidden key.
-5. 
-
+5. Run the JARVIS script
+```
+python jarvis.py
+```
 # Reference 
 - https://pypi.org/project/SpeechRecognition/3.14.3/
 - https://pypi.org/project/pyttsx3/2.90/
@@ -26,3 +43,13 @@ pip install -r requirements.txt
 - https://aistudio.google.com/api-keys
 - https://pypi.org/project/python-dotenv/1.2.1/
 - https://docs.python.org/3/library/logging.html
+
+# 👨‍💻 Author
+<b>Prodip Sarkar</b>
+
+Linkedin - https://www.linkedin.com/in/prodip1023/
+
+# 📜 License
+This project is open-source and free to use for learning purposes.
+
+

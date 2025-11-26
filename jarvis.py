@@ -27,7 +27,7 @@ LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 LOG_FILE_NAME = "jarvis.log"
 log_file_path = os.path.join(LOG_DIR, LOG_FILE_NAME)
-logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename=log_file_path, level=logging.INFO, format="[ %(asctime)s ] %(name)s - %(levelname)s - %(message)s")
 logging.info("Logging started")
 
 # #########################################################
@@ -39,5 +39,31 @@ engine.setProperty("rate", 170)
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id)
 
+# #########################################################
+# 5. Creating a function to speak
+# #########################################################
+def speak(text):
+    """
+    This function is used to speak the text
+    Args:
+        text (str): The text to speak
+    Returns:
+      voice
+    """
+    engine.say(text)
+    engine.runAndWait()
+    logging.info(f"Speaking: {text}")
 
 
+# #########################################################
+# 6. Creating a function to take command from the user
+# #########################################################
+def takeCommand():
+    """
+    This function is used to take command from the user
+    Args:
+        None
+    Returns:
+        command (str): The command to execute
+    """
+    pass
