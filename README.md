@@ -20,20 +20,20 @@ Python 3.11 +
 
 # How to run?
 1. Create Environment
-```
+```bash
 conda create -n jarvis python==3.11 -y
 ```
 2. Activate Environment
-```
+```bash
 conda activate jarvis
 ```
 3. Create requirements.txt for installing required packages
-```
+```bash
 pip install -r requirements.txt
 ```
 4. Create Google API Key and store .env file because of hidden key.
 5. Run the JARVIS script
-```
+```bash
 python jarvis.py
 ```
 # Reference 
