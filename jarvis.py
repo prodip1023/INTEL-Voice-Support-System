@@ -35,7 +35,7 @@ logging.info("Logging started")
 # #########################################################
 
 engine = pyttsx3.init("sapi5")
-engine.setProperty("rate", 170)
+engine.setProperty("rate", 170) # 170 is the speed of the voice
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id)
 
@@ -66,4 +66,26 @@ def takeCommand():
     Returns:
         command (str): The command to execute
     """
-    pass
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        logging.info("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+    
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
+        logging.info(f"User said: {query}")
+        
+    
+    except Exception as e:
+        print("Say that again please...")
+        logging.error(f"Error: {e}")
+        return "None"
+
+    return query
+
+query = takeCommand()
+print(query)
