@@ -175,7 +175,7 @@ while True:
         speak("Opening Linkedin...")
         webbrowser.open("https://www.linkedin.com/")
         logging.info("User asked to open Linkedin.")
-    elif "open calender" in query or "google calender":
+    elif "open calender" in query or "google calender" in query:
         speak("Opening Google Calender")
         webbrowser.open("https://calendar.google.com/")
         logging.info("User asked to open Google Calender.")
