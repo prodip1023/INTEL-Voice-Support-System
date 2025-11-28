@@ -153,9 +153,9 @@ while True:
         speak("I am an AI Assistant")
         logging.info("User asked about name")
     elif "time" in query:
-        time = datetime.datetime.now().strftime("%H:%M:%S")
-        speak(f"The time is {time}")
-        logging.info(f"The time is {time}")
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        speak(f"The time is {current_time}")
+        logging.info(f"The time is {current_time}")
     elif "who made you" in query:
         speak("I was created by Prodip Sarkar.")
         logging.info("User asked about assistant's creator.")
