@@ -17,7 +17,7 @@ import subprocess
 # #########################################################
 # 2. Setting up the Environment
 # #########################################################
-
+load_dotenv()
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # #########################################################
@@ -127,8 +127,18 @@ def play_music():
         speak("Sorry sir, I could not find your music folder.")
 
         
-
-
+# #########################################################
+# 8. Using Generative Model 
+# #########################################################
+def generaive_response(user_input):
+    genai.configure(api_key=google_api_key)
+    model = genai.GenerativeModel("gemini-2.5-flash")
+    # user_input = "what is python"
+    prompt = f"Your name is AI Assistant, You act like AI Assistance, Please provide a short answer in my Qustions:{user_input}"
+    response = model.generate_content(prompt)
+    result = response.text
+    return result
+ 
 
 
 greet_user()
@@ -138,7 +148,7 @@ greet_user()
 
 while True:
     query = takeCommand().lower()
-    print(query)
+    # print(query)
     if "your name" in query:
         speak("I am an AI Assistant")
         logging.info("User asked about name")
@@ -203,7 +213,7 @@ while True:
         subprocess.Popen("cmd.exe")
         logging.info("User asked to open Terminal.") 
     # Open System Calender
-    elif "open calender" in query or "system calender":
+    elif "system calender" in query :
         speak("Opening System Calender...")
         subprocess.Popen(["start", "ms-calendar:"], shell=True)
         logging.info("User asked to open System Calender.") 
@@ -227,7 +237,10 @@ while True:
         exit()
 
     else:
-        speak("I am sorry, I am not able to understand you")
-        logging.error("User asked about name")
+        response = generaive_response(query)
+        speak(response)
+        logging.info("User asked for others question")
+        # speak("I am sorry, I am not able to understand you")
+        # logging.error("User asked about name")
 
    

@@ -5,7 +5,7 @@ It works like a personal AI helper that listens, understands, and responds.
 
 # 🛠️ Features:-
 - Opening websites
-- Reading news
+- Opening Wikipedia
 - Opening files/programs
 - Giving answers
 - Searching Google/Wikipedia
@@ -14,6 +14,7 @@ It works like a personal AI helper that listens, understands, and responds.
 - Open Camera and capture image (new feature)
 - Play random music
 - Exit gracefully with a voice command
+- Using "Generative AI" model - gemini-2.5-flash
 
 # 💻 Requirements :
 Python 3.11 + 
