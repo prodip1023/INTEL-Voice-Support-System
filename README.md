@@ -44,6 +44,8 @@ INTEL-Voice-Support-System/
 │   ├── 1
 │   ├── 2
 │   └── 3
+├── assets/
+│   └── image.png
 ├── .env
 ├── .gitignore
 ├── README.md
@@ -51,6 +53,8 @@ INTEL-Voice-Support-System/
 ├── jarvis.py
 ├── requirements.txt
 └── test.ipynb
+
+
 ```
 
 #  Demo Video
