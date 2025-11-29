@@ -37,6 +37,25 @@ pip install -r requirements.txt
 ```bash
 python jarvis.py
 ```
+# Folder Structure
+```
+INTEL-Voice-Support-System/
+├── music/
+│   ├── 1
+│   ├── 2
+│   └── 3
+├── .env
+├── .gitignore
+├── README.md
+├── LICENSE
+├── jarvis.py
+├── requirements.txt
+└── test.ipynb
+```
+
+#  Demo Video
+[![Watch the video](assets/Capture.png)](https://drive.google.com/file/d/1rfUzb0P3t0Z_6gA7S4xqD-Kt9dr1oYVY/view?usp=drive_link)
+
 # Reference 
 - https://pypi.org/project/SpeechRecognition/3.14.3/
 - https://pypi.org/project/pyttsx3/2.90/
@@ -46,6 +65,7 @@ python jarvis.py
 - https://aistudio.google.com/api-keys
 - https://pypi.org/project/python-dotenv/1.2.1/
 - https://docs.python.org/3/library/logging.html
+- https://tree.nathanfriend.com/
 
 # 👨‍💻 Author
 <b>Prodip Sarkar</b>
