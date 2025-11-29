@@ -4,3 +4,4 @@ PyAudio==0.2.14
 wikipedia==1.4.0
 google-generativeai==0.8.4
 python-dotenv==1.2.1
+opencv-python

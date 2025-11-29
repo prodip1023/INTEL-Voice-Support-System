@@ -13,6 +13,8 @@ import logging
 import webbrowser
 import random 
 import subprocess 
+import cv2
+import time
 
 # #########################################################
 # 2. Setting up the Environment
@@ -110,7 +112,7 @@ def greet_user():
     speak("I am an AI Assistant, how can I help you today?")
 
 def play_music():
-    music_dir = "F:\\Assignment-JARVIS-System\\music"
+    music_dir = "C:\\Users\\prodi\\Downloads\\INTEL-Voice-Support-System\\music"
     try:
         songs = os.listdir(music_dir)
 
@@ -126,9 +128,49 @@ def play_music():
         logging.error(f"Error in play_music: {e}")
         speak("Sorry sir, I could not find your music folder.")
 
-        
 # #########################################################
-# 8. Using Generative Model 
+# 8. Opening Camera and take a photo
+# #########################################################
+
+def open_camera_and_take_photo():
+    try:
+        speak("Opening camera, please wait...")
+        cam = cv2.VideoCapture(0)  # 0 = default camera
+
+        if not cam.isOpened():
+            speak("Sorry sir, I could not access the camera.")
+            return
+
+        speak("Camera is on. Press SPACE to take a picture or ESC to exit.")
+
+        while True:
+            ret, frame = cam.read()
+            cv2.imshow("Camera - Press SPACE to capture", frame)
+
+            key = cv2.waitKey(1)
+
+            # SPACE key → take photo
+            if key == 32:  
+                photo_path = f"captured_photo_{int(time.time())}.jpg"
+                cv2.imwrite(photo_path, frame)
+                speak(f"Photo captured and saved as {photo_path}")
+                logging.info(f"Photo saved: {photo_path}")
+                break
+            
+            # ESC key → exit
+            elif key == 27:  
+                speak("Closing camera.")
+                break
+
+        cam.release()
+        cv2.destroyAllWindows()
+
+    except Exception as e:
+        logging.error(f"Camera error: {e}")
+        speak("Sorry sir, something went wrong while opening the camera.")
+      
+# #########################################################
+# 9. Using Generative Model 
 # #########################################################
 def generaive_response(user_input):
     genai.configure(api_key=google_api_key)
@@ -215,7 +257,7 @@ while True:
     # Open System Calender
     elif "system calender" in query :
         speak("Opening System Calender...")
-        subprocess.Popen(["start", "ms-calendar:"], shell=True)
+        subprocess.Popen("start ms-calendar:", shell=True)
         logging.info("User asked to open System Calender.") 
     
     # random jokes choice
@@ -230,6 +272,13 @@ while True:
     
     elif "play music" in query or "music" in query:
         play_music()
+    elif "open camera" in query or "camera" in query:
+        open_camera_and_take_photo()
+    
+    elif "take photo" in query or "take a picture" in query:
+        open_camera_and_take_photo()
+
+
     
     elif "exit" in query:
         speak("Thank you for your time sir. Have a great day ahead!")
